@@ -51,12 +51,12 @@ The main goal was to **segment retail customers** based on spending, recency, an
 ## 🖼️ Workflow Visuals
 
 <p align="center">
-  <img src="workflow_screenshots/feature_engineering.png" width="48%">
-  <img src="workflow_screenshots/kmeans_workflow.png" width="48%">
+  <img src="workflow_screenshots/workflow1-feature_engineering.png" width="48%">
+  <img src="workflow_screenshots/workflow2-kmeans_workflow.png" width="48%">
 </p>
 
 <p align="center">
-  <img src="workflow_screenshots/cluster_analysis.png" width="70%">
+  <img src="workflow_screenshots/workflow3-cluster_analysis.png" width="70%">
   <br>
   <em>Workflows covering feature engineering, clustering, and business insight generation.</em>
 </p>
