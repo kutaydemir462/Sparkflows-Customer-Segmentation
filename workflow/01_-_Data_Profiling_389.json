@@ -1,0 +1,504 @@
+{
+  "name": "01 - Data Profiling",
+  "uuid": "0120247a-09cb-407d-a8f1-1bf47ec44534",
+  "category": "Data Profiling",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "dataset",
+          "value": "e95f9fdd-6c58-4334-bda2-a8f1f5389fd3",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "Summary",
+      "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "502.496px",
+      "y": "227.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Summary",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "colNames",
+          "value": "[\"ID\",\"Year_Birth\",\"Kidhome\",\"Teenhome\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Column Names for Summary",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Summary Statistics to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "NullValuesInColumn",
+      "description": "Number of Null Values in Selected Columns.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+      "x": "502.496px",
+      "y": "120.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"ID\",\"Year_Birth\",\"Education\",\"Marital_Status\",\"Income\",\"Kidhome\",\"Teenhome\",\"Dt_Customer\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for Number of Null Values Check",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "DropRowsWithNull",
+      "description": "This node creates a new DataFrame by dropping rows containing null values",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "266.496px",
+      "y": "416.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Correlation",
+      "description": "calculates the correlation between two series of data.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "504.496px",
+      "y": "417.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Correlation Matrix",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"ID\",\"Year_Birth\",\"Kidhome\",\"Teenhome\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"]",
+          "widget": "variables",
+          "title": "Input Column for Correlation",
+          "description": "Column Names to check correlation ",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "ColumnsCardinality",
+      "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+      "x": "504.496px",
+      "y": "517.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"ID\",\"Year_Birth\",\"Education\",\"Marital_Status\",\"Income\",\"Kidhome\",\"Teenhome\",\"Dt_Customer\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for the cardinality data",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "MultiFlagOutliers",
+      "description": "This checks if values fall between Inter Quartile Range.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeMultiFlagOutliers",
+      "x": "504.496px",
+      "y": "617.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"ID\",\"Year_Birth\",\"Kidhome\",\"Teenhome\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"]",
+          "widget": "variables_list_select",
+          "title": "Input Column to flag the outlier",
+          "description": "The Input Column to flag the outlier",
+          "datatypes": [
+            "double",
+            "integer",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "lowerQuantiles",
+          "value": "[\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\",\"0.25\"]",
+          "widget": "variables_list_textfield",
+          "title": "LowerQuantile",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "upperQuantiles",
+          "value": "[\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\",\"0.75\"]",
+          "widget": "variables_list_textfield",
+          "title": "UpperQuantile",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "1",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "id": 5
+    },
+    {
+      "source": "1",
+      "target": "7",
+      "id": 6
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 156,
+      "uuid": "e95f9fdd-6c58-4334-bda2-a8f1f5389fd3",
+      "header": true,
+      "path": "/root/Customer-Segmentation-Kutay/customer_segmentation.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"ID\",\"Year_Birth\",\"Education\",\"Marital_Status\",\"Income\",\"Kidhome\",\"Teenhome\",\"Dt_Customer\",\"Recency\",\"MntWines\",\"MntFruits\",\"MntMeatProducts\",\"MntFishProducts\",\"MntSweetProducts\",\"MntGoldProds\",\"NumDealsPurchases\",\"NumWebPurchases\",\"NumCatalogPurchases\",\"NumStorePurchases\",\"NumWebVisitsMonth\",\"AcceptedCmp3\",\"AcceptedCmp4\",\"AcceptedCmp5\",\"AcceptedCmp1\",\"AcceptedCmp2\",\"Complain\",\"Z_CostContact\",\"Z_Revenue\",\"Response\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}
