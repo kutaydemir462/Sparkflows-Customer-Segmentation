@@ -132,7 +132,7 @@ This project extends beyond modeling — it delivers **business value** through 
 ## 🧾 Documentation
 
 Full documentation available in  
-[`docs/Customer_Segmentation_Sparkflows_Documentation.pdf`](./docs/Customer_Segmentation_Sparkflows_Documentation.pdf)
+[`Customer_Segmentation_Sparkflows_Documentation.pdf`](./docs/Customer_Segmentation_Sparkflows_Documentation.pdf)
 
 It includes:
 - Node configurations  
